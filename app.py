@@ -15,7 +15,9 @@ with st.sidebar:
     )
     model = st.selectbox(
         "Model",
-        ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "gemma2-9b-it"],
+        ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "groq/compound", "groq/compound-mini"],
+        help="These are the models currently open to standard developer API keys. "
+             "Llama 3.x models on Groq now require an Enterprise plan.",
     )
 
 st.subheader("📝 Message Details")
