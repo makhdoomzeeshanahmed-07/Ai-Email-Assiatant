@@ -6,13 +6,17 @@ st.set_page_config(page_title="Smart Message Composer", page_icon="✉️", layo
 st.title("✉️ Smart Message Composer")
 st.caption("Generate context-aware professional messages using the Groq API")
 
-with st.sidebar:
-    st.header("🔑 API Configuration")
-    api_key = st.text_input(
-        "Groq API Key",
-        type="password",
-        help="Get your free key from https://console.groq.com/keys",
-    )
+import streamlit as st
+from groq import Groq
+
+st.title("Management AI Assistant")
+
+groq_api_key = st.secrets["GROQ_API_KEY"]
+
+client = Groq(api_key=groq_api_key)
+
+st.success("Groq API connected successfully!")
+
     model = st.selectbox(
         "Model",
         ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "groq/compound", "groq/compound-mini"],
